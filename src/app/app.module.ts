@@ -14,7 +14,7 @@ import { ROUTES } from './app.routes';
     AppComponent,
     MenuComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
