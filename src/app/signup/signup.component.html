@@ -1,40 +1,49 @@
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-  <div>
+  <!-- <div>
     Form submitted ? {{myForm.submitted}}
     Form valid ? {{myForm.valid}}
-    Form invalid ? {{myForm.valid}}
-  </div>
-  <div>
-    <label for="title-order">Title</label>
-    <input name="title-order" type="text" [(ngModel)]="model.title" #title="ngModel" required minlength="5" maxlength="30"/>
-  </div>
-  <!-- Message d'erreurs -->
-  <div *ngIf="title.errors">
-    <span *ngIf="title.errors?.['required']">Le titre est requis</span>
-    <span *ngIf="title.errors?.['minlength']">La longueur minimale doit être supérieure à 5</span>
-    <span *ngIf="title.errors?.['maxlength']">La longueur maximale doit être inférieure à 30</span>
-  </div>
-  <div>
-    <label for="quantity-order">Quantité</label>
-  </div>
-  <!-- <div *ngIf="quantity.errors">
-    <span *ngIf="quantity.errors.required">Le champ quantité est requis</span>
+    Form invalid ? {{myForm.invalid}}
   </div> -->
   <div>
-    <label for="date-order">Date de commande</label>
-    <input name="date-order" type="date" [(ngModel)]="model.date" #date="ngModel" required>
+    <label for="firstname-user">firstname</label>
+    <input name="firstname-user" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required minlength="3" maxlength="15"/>
   </div>
-  <div *ngIf="date.errors">
-    <span *ngIf="date.errors['required']">Le champ email est requis</span>
+  <!-- Message d'erreurs -->
+  <div *ngIf="firstname.errors && myForm.submitted">
+    <span *ngIf="firstname.errors?.['required']">Le champ Firstname est requis</span>
+    <span *ngIf="firstname.errors?.['minlength']">La longueur minimale doit être supérieure à 3</span>
+    <span *ngIf="firstname.errors?.['maxlength']">La longueur maximale doit être inférieure à 15</span>
   </div>
   <div>
-    <label for="contact-order">Contact</label>
-    <input name="contact-order" type="email" [(ngModel)]="model.contact" #contact="ngModel" required email>
+    <label for="lastname-user">lastname</label>
+    <input name="lastname-user" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required minlength="3" maxlength="15">
   </div>
-  <div *ngIf="contact.errors">
-    <span *ngIf="contact.errors['required']">Le champ email est requis</span>
-    <span *ngIf="contact.errors['email']">L'adresse email doit être valide</span>
+  <div *ngIf="lastname.errors && myForm.submitted">
+    <span *ngIf="lastname.errors?.['required']">Le champ Lastname est requis</span>
+    <span *ngIf="lastname.errors?.['minlength']">La longueur minimale doit être supérieure à 3</span>
+    <span *ngIf="lastname.errors?.['maxlength']">La longueur maximale doit être inférieure à 15</span>
   </div>
-  <button type="reset">Restaurer</button>
-  <button type="submit">Sauvegarder</button>
+  <div>
+    <label for="password-user">password</label>
+    <input name="Password-user" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+  </div>
+  <div *ngIf="password.errors && myForm.submitted">
+    <span *ngIf="password.errors?.['required']">Le champ Password est requis</span>
+  </div>
+  <div>
+    <label for="mail-user">mail</label>
+    <input name="mail-user" type="email" [(ngModel)]="model.mail" #mail="ngModel" required email>
+  </div>
+  <div *ngIf="mail.errors && myForm.submitted">
+    <span *ngIf="mail.errors['required']">Le champ mail est requis</span>
+    <span *ngIf="mail.errors['email']">L'adresse mail doit être valide</span>
+  </div>
+  <!-- <button type="reset">Restaurer</button> -->
+  <button type="submit">Inscription</button>
 </form>
+<ul *ngIf="myForm.submitted && myForm.valid">
+  <li>Firstname: {{model.lastname}}</li>
+  <li>Lastname: {{model.lastname}}</li>
+  <li>Password: {{model.lastname}}</li>
+  <li>Mail: {{model.lastname}}</li>
+</ul>

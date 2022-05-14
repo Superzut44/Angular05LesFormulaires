@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from '../order';
+import { User } from '../user';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +8,7 @@ import { Order } from '../order';
 })
 export class SignupComponent implements OnInit {
 
-  model: Order = new Order();
+  model: User = new User();
 
   constructor() { }
 
@@ -19,5 +19,4 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
